@@ -5,8 +5,7 @@
 #include <cmath>
 #include <algorithm>
 using namespace std;
-//Функции для работы с вектором:
-
+//Функции для работы с вектором из второго задания:
 
 //Первая функция для вывода вектора на экран
 void printVec(vector <int> k) 
@@ -37,7 +36,7 @@ void countDif(vector<int> k)
 }
 
 
-//Второе задание
+//Первое задание
 //-----------------------------------------------------------------------------------------------
 class ArrayInt
 {
@@ -162,24 +161,24 @@ public:
         void pop_front() { deleteFirst(m_length); }
         //Первое задание.3:
         // Функция сортировки массива
-        void sortArray(int *array)
+        void sortArray()
         {
             for (size_t k = 0; k < m_length; k++)
             {
                 for (size_t i = 0; i < m_length - 1; i++)
                 {
-                    if (array[i] > array[i + 1])
+                    if (m_data[i] > m_data[i + 1])
                     {
                         int tmp;
-                        tmp = array[i];
-                        array[i] = array[i + 1];
-                        array[i + 1] = tmp;
+                        tmp = m_data[i];
+                        m_data[i] = m_data[i + 1];
+                        m_data[i + 1] = tmp;
                     }
                 }
             }
          }
 
-        void sort() { sortArray(m_data); }
+        void sort() { sortArray(); }
         //Первое задание.4:
         //Функция для вывода массива на экран
         void print()
@@ -276,7 +275,7 @@ int main()
     cout << "--------------------------------------------------------------------" << endl;
     setlocale(LC_ALL, "Russian");
     vector <int> myvec = { 10, 10, 9 , 7, 7, 5};
-    printVec(myvec); // вызов вышеописанной функции для вывода вектора
+    printVec(myvec); // вызов вышеописанной функции для вывода вектора на экран
     sort(myvec.begin(), myvec.end()); // В данном месте использую алгоритм для сортировки элементов вектора
     printVec(myvec);
     countDif(myvec); // вызов вышеописанной функции для вывода количества различных элементов
