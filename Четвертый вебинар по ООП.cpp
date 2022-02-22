@@ -246,6 +246,16 @@ public:
         {
             total += m_Cards[i]->getValue();
         }
+        if (total > 21)
+		{
+			for (size_t i = 0; i < m_Cards.size(); i++)
+			{
+				if (m_Cards[i]->getValue() == 'ACE')
+				{
+					total -= 10;
+				}
+			}
+		}
         return total;
     }
 };
