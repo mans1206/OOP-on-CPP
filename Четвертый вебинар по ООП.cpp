@@ -21,6 +21,7 @@ void printVec(vector <int> k)
 //Вторая функция для подсчета количества различных элементов вектора и вывода итога на экран
 void countDif(vector<int> k) 
 {
+    sort(k.begin(), k.end()); // В данном месте использую алгоритм для сортировки элементов вектора
     int count = 0;
     for (size_t i = 0; i < k.size() - 1; i++)
     {
@@ -193,9 +194,9 @@ public:
 class Card
 {
 protected:
-    enum Suit { SPADES = 1, HEARTS = 2, CLUBS = 3, DIAMONDS = 4 };
+    enum Suit { SPADES, HEARTS, CLUBS, DIAMONDS };
     enum Rank {
-        ACE = 1, TWO = 2, THREE = 3, FOUR = 4, FIVE = 5,
+        ACE = 11, TWO = 2, THREE = 3, FOUR = 4, FIVE = 5,
         SIX = 6, SEVEN = 7, EIGHT = 8, NINE = 9, TEN = 10,
         VALET = 10, DAMA = 10, KOROL = 10
     };
@@ -245,6 +246,16 @@ public:
         {
             total += m_Cards[i]->getValue();
         }
+        if (total > 21)
+		{
+			for (size_t i = 0; i < m_Cards.size(); i++)
+			{
+				if (m_Cards[i]->getValue() == 'ACE')
+				{
+					total -= 10;
+				}
+			}
+		}
         return total;
     }
 };
@@ -271,11 +282,8 @@ int main()
     cout << "--------------------------------------------------------------------" << endl;
     cout << "Второе задание" << endl;
     cout << "--------------------------------------------------------------------" << endl;
-    setlocale(LC_ALL, "Russian");
     vector <int> myvec = { 10, 10, 9 , 7, 7, 5};
     printVec(myvec); // вызов вышеописанной функции для вывода вектора на экран
-    sort(myvec.begin(), myvec.end()); // В данном месте использую алгоритм для сортировки элементов вектора
-    printVec(myvec);
     countDif(myvec); // вызов вышеописанной функции для вывода количества различных элементов
     cout << "--------------------------------------------------------------------" << endl;
     return 0;
