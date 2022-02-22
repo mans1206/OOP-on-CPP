@@ -194,9 +194,9 @@ public:
 class Card
 {
 protected:
-    enum Suit { SPADES = 1, HEARTS = 2, CLUBS = 3, DIAMONDS = 4 };
+    enum Suit { SPADES, HEARTS, CLUBS, DIAMONDS };
     enum Rank {
-        ACE = 1, TWO = 2, THREE = 3, FOUR = 4, FIVE = 5,
+        ACE = 11, TWO = 2, THREE = 3, FOUR = 4, FIVE = 5,
         SIX = 6, SEVEN = 7, EIGHT = 8, NINE = 9, TEN = 10,
         VALET = 10, DAMA = 10, KOROL = 10
     };
